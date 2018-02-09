@@ -7,7 +7,7 @@
                     <inventory @newItemAdded="addCartItem" :items="items"></inventory>
                 </div>
                 <div class="col-md-3">
-                    <cart :items="cart"></cart>
+                    <cart @removeItem="removeCartItem" :items="cart"></cart>
                 </div>
             </div>
         </div>
@@ -27,12 +27,7 @@
         data() {
             return {
                 items: [],
-                cart: [{
-                    id: 2,
-                    title: 'Bangla Khabar',
-                    price: 12.60,
-                    photo: "http://dummyimage.com/127x184.png/cc0000/ffffff",
-                }]
+                cart: []
             }
         },
         mounted(){
@@ -42,6 +37,10 @@
         methods : {
             addCartItem(item){
                 this.cart.push(item)
+            },
+
+            removeCartItem(index){
+                this.cart.splice(index,1)
             }
         }
     }
