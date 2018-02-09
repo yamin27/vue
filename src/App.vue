@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <inventory :items="items"></inventory>
+                    <inventory @newItemAdded="addCartItem" :items="items"></inventory>
                 </div>
                 <div class="col-md-3">
-                    <cart></cart>
+                    <cart :items="cart"></cart>
                 </div>
             </div>
         </div>
@@ -24,11 +24,25 @@
         components: {
             Navbar, Cart, Inventory
         },
-        data(){
-          items: []
+        data() {
+            return {
+                items: [],
+                cart: [{
+                    id: 2,
+                    title: 'Bangla Khabar',
+                    price: 12.60,
+                    photo: "http://dummyimage.com/127x184.png/cc0000/ffffff",
+                }]
+            }
         },
         mounted(){
             this.items = data
+            // console.log(data);
+        },
+        methods : {
+            addCartItem(item){
+                this.cart.push(item)
+            }
         }
     }
 </script>
