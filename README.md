@@ -1,10 +1,13 @@
 # vue
 
-> A Vue.js project
+> A simple Cart Project using Vue Js. Data add to Cart, remove from Cart and search function.
 
 ## Build Setup
 
 ``` bash
+#clone the project 
+git clone git@github.com:yamin27/vue.git
+
 # install dependencies
 npm install
 
